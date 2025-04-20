@@ -166,7 +166,8 @@ export default {
       } else if (properties.items.length == 1) {
         const event = this.chartData[properties.items[0]][6];
         const groupId = this.items[properties.items[0]].group;
-        const bucketId = _.find(this.groups, g => g.id == groupId).content;
+        // const bucketId = _.find(this.groups, g => g.id == groupId).content;
+        const bucketId = groupId;
 
         // We retrieve the full event to ensure if's not cut-off by the query range
         // See: https://github.com/ActivityWatch/aw-webui/pull/320#issuecomment-1056921587
@@ -177,9 +178,7 @@ export default {
           console.log('Editing event', event, ', in bucket', bucketId);
           this.openEditor();
         });
-        alert(
-          "Note: Changes won't be reflected in the timeline until the page is refreshed. This will be improved in a future version."
-        );
+
       } else {
         alert('selected multiple items: ' + JSON.stringify(properties.items));
       }
