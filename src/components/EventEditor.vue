@@ -48,7 +48,7 @@ b-modal(v-if="event && event.id", :id="'edit-modal-' + event.id", ref="eventEdit
       b-button.mx-1(@click="save(); close();", variant="primary")
         icon.mx-1(name="save")
         | Save
-    div.float-right.text-right.mt-2.small.text-muted
+    div.float-right.text-right.mt-2.small.text-muted(v-if="reloadNotice")
       | Changes will only be visible in the timeline after reloading the page.
 </template>
 
@@ -74,6 +74,7 @@ export default {
   props: {
     event: { type: Object },
     bucket_id: { type: String, required: true },
+    reloadNotice: { type: Boolean, default: false },
   },
   data() {
     return {

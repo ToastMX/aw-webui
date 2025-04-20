@@ -6,7 +6,7 @@ div
     i Buckets with no events in the queried range will be hidden.
 
   div(v-if="editingEvent")
-    EventEditor(:event="editingEvent" :bucket_id="editingEventBucket")
+    EventEditor(:event="editingEvent" :bucket_id="editingEventBucket" :reload-notice="true")
 </template>
 
 <style lang="scss">
